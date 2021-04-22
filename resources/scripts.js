@@ -1,10 +1,10 @@
-
+//Randamoly assign a choice to the computer.
 function computerPlay() {
     let choice = ["rock", "paper", "scissors"]
     let chosen = choice[Math.floor(Math.random()*choice.length)];
     return chosen;
 }
-
+//to get the players choice i must promt a question from the player and record their choice in a variable.
 function getMychoice() {
     let mychoice = window.prompt("Choose rock, paper or scissors", "").toLowerCase();
     if ((mychoice === "rock") || (mychoice == "paper") || (mychoice == "scissors")) {
@@ -13,7 +13,9 @@ function getMychoice() {
         getMychoice()
     }
 }
+//adding game function which returns playRound function & will interate 5 rounds & record these results. 
 function game() {
+    //a round of rock,paper or scissors consists of two player choosing one of these options, this will show their outcome.
     function playRound(playerSelection, computerSelection) {
         if (playerSelection == "rock" && computerSelection == "paper"){
             return ("you Lose! Paper beats Rock")
