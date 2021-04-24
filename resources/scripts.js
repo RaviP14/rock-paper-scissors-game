@@ -33,7 +33,8 @@ function game() {
         console.log("I choose " + chosen);
         return chosen;
     }
-    //to get the players choice i must promt a question from the player and record their choice in a variable.
+    //to get the players choice i must promt a question from the player 
+    // and then record their choice in a variable.
     function getMychoice() {
         let mychoice = window.prompt("Choose rock, paper or scissors", "").toLowerCase();
         if ((mychoice === "rock") || (mychoice == "paper") || (mychoice == "scissors")) {
@@ -62,3 +63,8 @@ if (playerScore >= 3) {
 } else {
    console.log(" Final result: It\'s a draw")
 }
+
+//concerns: 
+// 1. get an error message in console log when cancel is pressed.
+// 2. get undefined randomly when going through rounds (mostly plays 5 games regardless)
+// - this sometimes lead to the score in some rounds being 0 and not adding correctly (leads to draw)
