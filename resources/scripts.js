@@ -40,6 +40,8 @@ function game() {
         if ((mychoice === "rock") || (mychoice == "paper") || (mychoice == "scissors")) {
             console.log("pc chooses " + mychoice);
             return mychoice;
+        } else if (mychoice === null) { //cancel error msg still not removed with this?
+            return;
         } else {
             getMychoice()
         }
@@ -60,6 +62,14 @@ if (playerScore >= 3) {
     console.log("Final result: You are the Winner!")
 } else if (computerScore >= 3) {
    console.log("Final result: Unlucky, you lost :(")
+} else if (playerScore >= 2 && computerScore === 1) {
+    console.log("Final result: You are the Winner!")
+} else if (computerScore >= 2 && playerScore === 1) {
+    console.log("Final result: Unlucky, you lost :(")
+} else if (playerScore >= 1 && computerScore === 0) {
+    console.log("Final result: You are the Winner!")
+} else if (computerScore >= 1 && playerScore === 0) {
+    console.log("Final result: Unlucky, you lost :(")
 } else {
    console.log(" Final result: It\'s a draw")
 }
