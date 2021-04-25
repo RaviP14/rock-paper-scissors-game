@@ -26,35 +26,36 @@ function game() {
         }
         console.log("P1 " + playerScore + " : " + computerScore + " PC");
     }
-    //Randamoly assign a choice to the computer.
-    function computerPlay() {
-        let choice = ["rock", "paper", "scissors"]
-        let chosen = choice[Math.floor(Math.random()*choice.length)];
-        console.log("I choose " + chosen);
-        return chosen;
-    }
-    //to get the players choice i must promt a question from the player 
-    // and then record their choice in a variable.
-    function getMychoice() {
-        let mychoice = window.prompt("Choose rock, paper or scissors", "").toLowerCase();
-        if ((mychoice === "rock") || (mychoice == "paper") || (mychoice == "scissors")) {
-            console.log("pc chooses " + mychoice);
-            return mychoice;
-        } else if (mychoice === null) { //cancel error msg still not removed with this?
-            return;
-        } else {
-            getMychoice()
-        }
-    }
 
     const playerSelection = getMychoice();
     const computerSelection = computerPlay();
     return playRound(playerSelection,computerSelection)
 }
 
+//Randamoly assign a choice to the computer.
+function computerPlay() {
+    let choice = ["rock", "paper", "scissors"]
+    let chosen = choice[Math.floor(Math.random()*choice.length)];
+    console.log("I choose " + chosen);
+    return chosen;
+}
+
+//to get the players choice i must promt a question from the player 
+// and then record their choice in a variable.
+function getMychoice() {
+    let mychoice = window.prompt("Choose rock, paper or scissors", "").toLowerCase();
+    if ((mychoice === "rock") || (mychoice == "paper") || (mychoice == "scissors")) {
+        console.log("pc chooses " + mychoice);
+        return mychoice;
+    } else if (mychoice == null) { //cancel error msg still not removed with this?
+        return;
+    } else {
+        getMychoice()
+    }
+}
 //iterate over game to play 5 rounds.
 for (let i = 0; i < 5; i++) {
-    console.log(game()); 
+    console.log(game());
 }
 
 //overall winner & loser of game:
@@ -76,5 +77,5 @@ if (playerScore >= 3) {
 
 //concerns: 
 // 1. get an error message in console log when cancel is pressed.
-// 2. get undefined randomly when going through rounds (mostly plays 5 games regardless)
-// - this sometimes lead to the score in some rounds being 0 and not adding correctly (leads to draw)
+// 2. get undefined randomly through rounds when score shows (plays 5 games regardless)
+// debugger steps through log then to i++ 
