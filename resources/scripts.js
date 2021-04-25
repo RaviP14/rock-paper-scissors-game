@@ -7,26 +7,31 @@ function game() {
     function playRound(playerSelection, computerSelection) {
         if (playerSelection == "rock" && computerSelection == "paper"){
             computerScore++
+            return ("You Lost! This round.")
         } else if (playerSelection == "rock" && computerSelection == "scissors") {
             playerScore++
+            return ("You Won! This round.")
         } else if (playerSelection == "rock" && computerSelection == "rock") {
             return("It\'s a draw")
         } else if (playerSelection == "paper" && computerSelection == "rock") {
             playerScore++
+            return ("You Won! This round.")
         } else if (playerSelection == "paper" && computerSelection == "scissors") {
             computerScore++
+            return ("You Lost! This round.")
         } else if (playerSelection == "paper" && computerSelection == "paper") {
             return ("It\'s a draw")
         } else if (playerSelection == "scissors" && computerSelection == "rock") {
             computerScore++
+            return ("You Lost! This round.")
         } else if (playerSelection == "scissors" && computerSelection == "paper") {
             playerScore++
+            return ("You Won! This round.")
         } else if (playerSelection == "scissors" && computerSelection == "scissors") {
             return ("It\'s a draw")
         }
-        console.log("P1 " + playerScore + " : " + computerScore + " PC");
     }
-
+    console.log("P1 " + playerScore + " : " + computerScore + " PC");
     const playerSelection = getMychoice();
     const computerSelection = computerPlay();
     return playRound(playerSelection,computerSelection)
@@ -47,7 +52,7 @@ function getMychoice() {
     if ((mychoice === "rock") || (mychoice == "paper") || (mychoice == "scissors")) {
         console.log("pc chooses " + mychoice);
         return mychoice;
-    } else if (mychoice == null) { //cancel error msg still not removed with this?
+    } else if (mychoice == null) { //cancel prompt error msg still not removed with this?
         return;
     } else {
         getMychoice()
@@ -76,6 +81,4 @@ if (playerScore >= 3) {
 }
 
 //concerns: 
-// 1. get an error message in console log when cancel is pressed.
-// 2. get undefined randomly through rounds when score shows (plays 5 games regardless)
-// debugger steps through log then to i++ 
+// 1. get an error message in console log when cancel is pressed on promt.
