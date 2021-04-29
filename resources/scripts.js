@@ -59,9 +59,9 @@ function getMychoice() {
     }
 }
 //iterate over game to play 5 rounds.
-for (let i = 0; i < 5; i++) {
-    console.log(game());
-}
+//for (let i = 0; i < 5; i++) {
+//    console.log(game());
+//}
 
 //overall winner & loser of game:
 if (playerScore >= 3) {
