@@ -41,21 +41,23 @@ function game() {
 function computerPlay() {
     let choice = ["rock", "paper", "scissors"]
     let chosen = choice[Math.floor(Math.random()*choice.length)];
-    console.log("I choose " + chosen);
+    console.log("PC choose " + chosen);
     return chosen;
 }
 
 //to get the players choice i must promt a question from the player 
 // and then record their choice in a variable.
 function getMychoice() {
-    let mychoice = window.prompt("Choose rock, paper or scissors", "").toLowerCase();
-    if ((mychoice === "rock") || (mychoice == "paper") || (mychoice == "scissors")) {
-        console.log("pc chooses " + mychoice);
-        return mychoice;
-    } else if (mychoice == null) { //cancel prompt error msg still not removed with this?
-        return;
-    } else {
-        getMychoice()
+    //let mychoice = window.prompt("Choose rock, paper or scissors", "").toLowerCase();
+    if (myButtonChoice1) {
+        console.log("I chooses " + "rock");
+        return ('rock');
+    } else if (myButtonChoice2) {
+        console.log("I chooses " + "paper");
+        return ('paper');
+    } else if (myButtonChoice3) {
+        console.log("I chooses " + "scissors");
+        return ('scissors');
     }
 }
 //iterate over game to play 5 rounds.
@@ -63,22 +65,34 @@ function getMychoice() {
 //    console.log(game());
 //}
 
-//overall winner & loser of game:
-if (playerScore >= 3) {
-    console.log("Final result: You are the Winner!")
-} else if (computerScore >= 3) {
-   console.log("Final result: Unlucky, you lost :(")
-} else if (playerScore >= 2 && computerScore === 1) {
-    console.log("Final result: You are the Winner!")
-} else if (computerScore >= 2 && playerScore === 1) {
-    console.log("Final result: Unlucky, you lost :(")
-} else if (playerScore >= 1 && computerScore === 0) {
-    console.log("Final result: You are the Winner!")
-} else if (computerScore >= 1 && playerScore === 0) {
-    console.log("Final result: Unlucky, you lost :(")
-} else {
-   console.log(" Final result: It\'s a draw")
-}
+const myButtonChoice1 = document.querySelector('#bR');
+myButtonChoice1.addEventListener('click', game);
 
+const myButtonChoice2 = document.querySelector('#bP');
+myButtonChoice2.addEventListener('click', game);
+
+const myButtonChoice3 = document.querySelector('#bS');
+myButtonChoice3.addEventListener('click', game);
+
+
+//overall winner & loser of game:
+// to do:add if statement to run this function eg if (loop = false) return overall
+function overall () {
+    if (playerScore >= 3) {
+        console.log("Final result: You are the Winner!")
+    } else if (computerScore >= 3) {
+    console.log("Final result: Unlucky, you lost :(")
+    } else if (playerScore >= 2 && computerScore === 1) {
+        console.log("Final result: You are the Winner!")
+    } else if (computerScore >= 2 && playerScore === 1) {
+        console.log("Final result: Unlucky, you lost :(")
+    } else if (playerScore >= 1 && computerScore === 0) {
+        console.log("Final result: You are the Winner!")
+    } else if (computerScore >= 1 && playerScore === 0) {
+        console.log("Final result: Unlucky, you lost :(")
+    } else {
+    console.log(" Final result: It\'s a draw")
+    }
+}
 //concerns: 
 // 1. get an error message in console log when cancel is pressed on promt.

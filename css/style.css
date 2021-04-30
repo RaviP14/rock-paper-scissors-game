@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    text-align: center;
+}
