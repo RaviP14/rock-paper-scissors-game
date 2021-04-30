@@ -44,27 +44,14 @@ function computerPlay() {
     return chosen;
 }
 
-//to get the players choice i must promt a question from the player 
-// and then record their choice in a variable.
-function getMychoice() {
-    //let mychoice = window.prompt("Choose rock, paper or scissors", "").toLowerCase();
-    if (myButtonChoice1) {
-        console.log("I choose " + "rock");
-        return ("rock");
-    } else if (myButtonChoice2) {
-       console.log("I choose " + "paper");
-        return ("paper");
-    } else if (myButtonChoice3) {
-        console.log("I choose " + "scissors");
-        return ("scissors");
-    }
-}
+
 
 //iterate over game to play 5 rounds.
 //for (let i = 0; i < 5; i++) {
 //    console.log(game());
 //}
 
+//get player choice through button press:
 const myButtonChoice1 = document.querySelector('#bR');
 myButtonChoice1.addEventListener("click", (e) => {
     const playerSelection = e.target.dataset.control
