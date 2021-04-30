@@ -2,7 +2,7 @@
 let playerScore = 0;
 let computerScore = 0;
 //adding game function which returns playRound function. 
-function game() {
+function game(playerSelection) {
     //a round of rock,paper or scissors consists of two player choosing one of these options, this will add their result to the score.
     function playRound(playerSelection, computerSelection) {
         if (playerSelection == "rock" && computerSelection == "paper"){
@@ -32,7 +32,6 @@ function game() {
         }
     }
     console.log("P1 " + playerScore + " : " + computerScore + " PC");
-    const playerSelection = getMychoice();
     const computerSelection = computerPlay();
     return playRound(playerSelection,computerSelection)
 }
@@ -50,29 +49,43 @@ function computerPlay() {
 function getMychoice() {
     //let mychoice = window.prompt("Choose rock, paper or scissors", "").toLowerCase();
     if (myButtonChoice1) {
-        console.log("I chooses " + "rock");
-        return ('rock');
+        console.log("I choose " + "rock");
+        return ("rock");
     } else if (myButtonChoice2) {
-        console.log("I chooses " + "paper");
-        return ('paper');
+       console.log("I choose " + "paper");
+        return ("paper");
     } else if (myButtonChoice3) {
-        console.log("I chooses " + "scissors");
-        return ('scissors');
+        console.log("I choose " + "scissors");
+        return ("scissors");
     }
 }
+
 //iterate over game to play 5 rounds.
 //for (let i = 0; i < 5; i++) {
 //    console.log(game());
 //}
 
 const myButtonChoice1 = document.querySelector('#bR');
-myButtonChoice1.addEventListener('click', game);
+myButtonChoice1.addEventListener("click", (e) => {
+    const playerSelection = e.target.dataset.control
+    game(playerSelection)
+    console.log("I choose " + "rock");
+});
 
 const myButtonChoice2 = document.querySelector('#bP');
-myButtonChoice2.addEventListener('click', game);
+myButtonChoice2.addEventListener("click", (e) => {
+    const playerSelection = e.target.dataset.control
+    game(playerSelection)
+    console.log("I choose " + "paper");
+});
 
 const myButtonChoice3 = document.querySelector('#bS');
-myButtonChoice3.addEventListener('click', game);
+myButtonChoice3.addEventListener("click", (e) => {
+    //console.log(e.target.dataset.control);
+    const playerSelection = e.target.dataset.control
+    game(playerSelection)
+    console.log("I choose " + "scissors");
+});
 
 
 //overall winner & loser of game:
