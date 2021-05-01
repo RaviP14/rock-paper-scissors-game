@@ -2,15 +2,46 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    font: arial;
+}
+
+h2 {
+    text-align: center;
+    align-items: center;
+    padding-left: 1em;
+    font: arial;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
 }
 
 button {
     display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 1em;
     text-align: center;
+    align-items: center;
+    height: 5em;
+    width: 6em;
+    text-decoration: none;
+    border: none;
+    border-radius: 1em;
 }
+
 body div {
     padding: 1em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.div0 {
+    text-decoration: underline;
+}
+
+.div4 {
+    font-weight: 700;
 }
