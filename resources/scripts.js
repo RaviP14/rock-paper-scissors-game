@@ -7,31 +7,30 @@ function game(playerSelection) {
     function playRound(playerSelection, computerSelection) {
         if (playerSelection == "rock" && computerSelection == "paper"){
             computerScore++
-            return ("You Lost! This round.")
+            return div3.textContent = ("You Lost! This round.")
         } else if (playerSelection == "rock" && computerSelection == "scissors") {
             playerScore++
-            return ("You Won! This round.")
+            return div3.textContent = ("You Won! This round.")
         } else if (playerSelection == "rock" && computerSelection == "rock") {
-            return("It\'s a draw")
+            return div3.textContent = ("It\'s a draw")
         } else if (playerSelection == "paper" && computerSelection == "rock") {
             playerScore++
-            return ("You Won! This round.")
+            return div3.textContent = ("You Won! This round.")
         } else if (playerSelection == "paper" && computerSelection == "scissors") {
             computerScore++
-            return ("You Lost! This round.")
+            return div3.textContent = ("You Lost! This round.")
         } else if (playerSelection == "paper" && computerSelection == "paper") {
-            return ("It\'s a draw")
+            return div3.textContent = ("It\'s a draw")
         } else if (playerSelection == "scissors" && computerSelection == "rock") {
             computerScore++
-            return ("You Lost! This round.")
+            return div3.textContent = ("You Lost! This round.")
         } else if (playerSelection == "scissors" && computerSelection == "paper") {
             playerScore++
-            return ("You Won! This round.")
+            return div3.textContent = ("You Won! This round.")
         } else if (playerSelection == "scissors" && computerSelection == "scissors") {
-            return ("It\'s a draw")
+            return div3.textContent = ("It\'s a draw")
         }
     }
-    console.log("P1 " + playerScore + " : " + computerScore + " PC");
     const computerSelection = computerPlay();
     return playRound(playerSelection,computerSelection)
 }
@@ -40,11 +39,9 @@ function game(playerSelection) {
 function computerPlay() {
     let choice = ["rock", "paper", "scissors"]
     let chosen = choice[Math.floor(Math.random()*choice.length)];
-    console.log("PC choose " + chosen);
+    div2.textContent = ("PC chooses " + chosen);
     return chosen;
 }
-
-
 
 //iterate over game to play 5 rounds.
 //for (let i = 0; i < 5; i++) {
@@ -55,44 +52,69 @@ function computerPlay() {
 const myButtonChoice1 = document.querySelector('#bR');
 myButtonChoice1.addEventListener("click", (e) => {
     const playerSelection = e.target.dataset.control
-    game(playerSelection)
-    console.log("I choose " + "rock");
+    div0.textContent = ("P1 " + playerScore + " : " + computerScore + " PC");
+    if (playerScore >= 5) {
+        div4.textContent = ("Final result: You are the Winner!")
+    } else if (computerScore >= 5) {
+        div4.textContent = ("Final result: Unlucky, you lost :(")
+    } else if (playerScore < 5 || computerScore < 5) {
+        game(playerSelection)
+        div1.textContent = "I choose " + "rock";
+    }
 });
 
 const myButtonChoice2 = document.querySelector('#bP');
 myButtonChoice2.addEventListener("click", (e) => {
     const playerSelection = e.target.dataset.control
-    game(playerSelection)
-    console.log("I choose " + "paper");
+    div0.textContent = ("P1 " + playerScore + " : " + computerScore + " PC");
+    if (playerScore >= 5) {
+        div4.textContent = ("Final result: You are the Winner!")
+    } else if (computerScore >= 5) {
+        div4.textContent = ("Final result: Unlucky, you lost :(")
+    } else if (playerScore < 5 || computerScore < 5) {
+        game(playerSelection)
+        div1.textContent = "I choose " + "paper";
+    }
 });
 
 const myButtonChoice3 = document.querySelector('#bS');
 myButtonChoice3.addEventListener("click", (e) => {
     //console.log(e.target.dataset.control);
     const playerSelection = e.target.dataset.control
-    game(playerSelection)
-    console.log("I choose " + "scissors");
+    div0.textContent = ("P1 " + playerScore + " : " + computerScore + " PC");
+    if (playerScore >= 5) {
+        div4.textContent = ("Final result: You are the Winner!")
+    } else if (computerScore >= 5) {
+        div4.textContent = ("Final result: Unlucky, you lost :(")
+    } else if (playerScore < 5 || computerScore < 5) {
+        game(playerSelection)
+        div1.textContent = "I choose " + "scissors";
+    }
 });
 
+const mBody = document.querySelector("body");
 
-//overall winner & loser of game:
-// to do:add if statement to run this function eg if (loop = false) return overall
-function overall () {
-    if (playerScore >= 3) {
-        console.log("Final result: You are the Winner!")
-    } else if (computerScore >= 3) {
-    console.log("Final result: Unlucky, you lost :(")
-    } else if (playerScore >= 2 && computerScore === 1) {
-        console.log("Final result: You are the Winner!")
-    } else if (computerScore >= 2 && playerScore === 1) {
-        console.log("Final result: Unlucky, you lost :(")
-    } else if (playerScore >= 1 && computerScore === 0) {
-        console.log("Final result: You are the Winner!")
-    } else if (computerScore >= 1 && playerScore === 0) {
-        console.log("Final result: Unlucky, you lost :(")
-    } else {
-    console.log(" Final result: It\'s a draw")
-    }
-}
-//concerns: 
-// 1. get an error message in console log when cancel is pressed on promt.
+const div0 = document.createElement("div");
+div0.classList.add("div0");
+
+mBody.appendChild(div0);
+
+const div1 = document.createElement("div");
+div1.classList.add("div1");
+
+mBody.appendChild(div1);
+
+const div2 = document.createElement("div");
+div2.classList.add("div2");
+
+mBody.appendChild(div2);
+
+const div3 = document.createElement("div");
+div3.classList.add("div3");
+
+mBody.appendChild(div3);
+
+const div4 = document.createElement("div");
+div4.classList.add("div4");
+
+mBody.appendChild(div4);

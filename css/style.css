@@ -11,3 +11,6 @@ button {
     margin: 1em;
     text-align: center;
 }
+body div {
+    padding: 1em;
+}
