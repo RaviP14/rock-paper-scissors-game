@@ -51,7 +51,7 @@ myButtonChoice1.addEventListener("click", (e) => {
         div5.textContent = ("Press F5 to play again")
     } else if (playerScore < 5 || computerScore < 5) {
         game(playerSelection)
-        div1.textContent = "I choose " + "rock";
+        div1.textContent = "You chose " + "rock";
         div0.textContent = ("P1 " + playerScore + " : " + computerScore + " PC");
         winner()
     }
@@ -64,7 +64,7 @@ myButtonChoice2.addEventListener("click", (e) => {
         div5.textContent = ("Press F5 to play again")
     } else if (playerScore < 5 || computerScore < 5) {
         game(playerSelection)
-        div1.textContent = "I choose " + "paper";
+        div1.textContent = "You chose " + "paper";
         div0.textContent = ("P1 " + playerScore + " : " + computerScore + " PC");
         winner()
     }
@@ -78,7 +78,7 @@ myButtonChoice3.addEventListener("click", (e) => {
         div5.textContent = ("Press F5 to play again")
     } else if (playerScore < 5 || computerScore < 5) {
         game(playerSelection)
-        div1.textContent = "I choose " + "scissors";
+        div1.textContent = "You chose " + "scissors";
         div0.textContent = ("P1 " + playerScore + " : " + computerScore + " PC");
         winner()
     }
