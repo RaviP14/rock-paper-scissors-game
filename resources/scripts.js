@@ -48,7 +48,7 @@ const myButtonChoice1 = document.querySelector('#bR');
 myButtonChoice1.addEventListener("click", (e) => {
     const playerSelection = e.target.dataset.control
     if (playerScore >= 5 || computerScore >= 5) {
-        winner()
+        div5.textContent = ("Press F5 to play again")
     } else if (playerScore < 5 || computerScore < 5) {
         game(playerSelection)
         div1.textContent = "I choose " + "rock";
@@ -61,7 +61,7 @@ const myButtonChoice2 = document.querySelector('#bP');
 myButtonChoice2.addEventListener("click", (e) => {
     const playerSelection = e.target.dataset.control
     if (playerScore >= 5 || computerScore >= 5) {
-        winner()
+        div5.textContent = ("Press F5 to play again")
     } else if (playerScore < 5 || computerScore < 5) {
         game(playerSelection)
         div1.textContent = "I choose " + "paper";
@@ -75,7 +75,7 @@ myButtonChoice3.addEventListener("click", (e) => {
     //console.log(e.target.dataset.control);
     const playerSelection = e.target.dataset.control
     if (playerScore >= 5 || computerScore >= 5) {
-        winner()
+        div5.textContent = ("Press F5 to play again")
     } else if (playerScore < 5 || computerScore < 5) {
         game(playerSelection)
         div1.textContent = "I choose " + "scissors";
@@ -110,6 +110,11 @@ const div4 = document.createElement("div");
 div4.classList.add("div4");
 
 mBody.appendChild(div4);
+
+const div5 = document.createElement("div");
+div5.classList.add("div5");
+
+mBody.appendChild(div5);
 
 //overall winner
 function winner () {
